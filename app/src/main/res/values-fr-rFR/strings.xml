@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LP3TP23</string>
+    <string name="hintExample">Exemple : Les dents de la mer</string>
+    <string name="lblSearchMainActivity">Veuillez saisir le nom d\'un film :</string>
+    <string name="search">Rechercher</string>
+    <string name="runtime">Durée :</string>
+    <string name="searchError">Impossible de trouver le film</string>
+    <string name="title">Titre :</string>
+    <string name="year">Année :</string>
+    <string name="gender">Genre(s) :</string>
+    <string name="emptyTxtBox">Ce champ ne peut pas être vide !</string>
+    <string name="directorName">Producteur :</string>
+</resources>
