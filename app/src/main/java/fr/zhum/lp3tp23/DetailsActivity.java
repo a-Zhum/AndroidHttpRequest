@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+// Activité Secondaire qui contient notre recyclerView de film
 public class DetailsActivity extends AppCompatActivity {
 
     private ImageView imgMovie;
@@ -39,6 +39,7 @@ public class DetailsActivity extends AppCompatActivity {
         lblGenderDetails = findViewById(R.id.lblGenderDetails);
         lblRuntimeDetails = findViewById(R.id.lblRuntimeDetails);
 
+        // On renvoit le détail d'un film à l'aide de son ID transmit à l'Intente
         Intent intent = getIntent();
         String idMovie = intent.getStringExtra("imdbID");
         getMovieById(idMovie);
@@ -51,6 +52,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
+                    // Récupération des champs que nous voulons obtenir dans notre vue de détails
                     Picasso.get().load(response.getString("Poster")).into(imgMovie);
                     lblTitleDetails.setText(response.getString("Title"));
                     lblYearDetails.setText(response.getString("Year"));

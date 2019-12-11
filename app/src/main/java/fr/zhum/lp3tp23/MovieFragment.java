@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-
+// Fragment Comportant la RecyclerView
 public class MovieFragment extends Fragment {
 
     private RecyclerView myMovieRecyclerView;
@@ -42,19 +42,24 @@ public class MovieFragment extends Fragment {
         return v;
     }
 
+    // Fonction de 'purge'
     public static void resetM() {
         movieList.clear();
         myAdapter.notifyDataSetChanged();
     }
 
+    // Fonction d'ajout
     public static void addM(Movie m) {
         movieList.add(m);
         myAdapter.notifyDataSetChanged();
     }
 
+    // Configuration du Listener sur le RecyclerView
     protected void configureOnClickRecyclerView(){
         RecyclerItemClickListener.addTo(myMovieRecyclerView, R.layout.fragment_movie)
                 .setOnItemClickListener(new RecyclerItemClickListener.OnItemClickListener() {
+
+                    // Méthone appelé lors du clique sur un élément du RecyclerView
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                         Intent intent = new Intent(getContext(), DetailsActivity.class);

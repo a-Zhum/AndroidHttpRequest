@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import static android.service.voice.VoiceInteractionSession.Request.*;
-
+// Activité Principale
 public class MainActivity extends AppCompatActivity {
 
     private EditText txtBoxSearch;
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         txtBoxSearch = findViewById(R.id.txtBoxSearchMovie);
         btnSearch = findViewById(R.id.btnSearch);
 
+        // Lors du clique sur bouton Search
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,17 +53,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    // Fonction de recherche de Film
     protected void searchMovie(String movie) {
         myRequestQueue = Volley.newRequestQueue(this);
 
             JsonObjectRequest getMovies;
-        getMovies = new JsonObjectRequest(com.android.volley.Request.Method.GET, urlApi + movie, null, new Response.Listener<JSONObject>() {
+            getMovies = new JsonObjectRequest(com.android.volley.Request.Method.GET, urlApi + movie, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray movies = (JSONArray) response.get("Search");
                     MovieFragment.resetM();
 
+                    // Ajout des éléments de l'Objet JSON 1 à 1
                     for (int i = 0; i < movies.length(); i++) {
                         JSONObject m = movies.getJSONObject(i);
                         String idMovie = m.getString("imdbID");
@@ -81,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), R.string.searchError, Toast.LENGTH_LONG).show();
             }
         });
+
 
         myRequestQueue.add(getMovies);
     }

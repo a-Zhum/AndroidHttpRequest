@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 
 // Class permettant de gérer le clique sur un élement d'un RecyclerView
-// C'est une source qui ne m'appartient pas.
+// C'est une source qui ne m'appartient pas. (StackOverflow)
 public class RecyclerItemClickListener {
 
     private final RecyclerView mRecyclerView;

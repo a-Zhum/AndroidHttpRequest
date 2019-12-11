@@ -1,6 +1,6 @@
 package fr.zhum.lp3tp23;
 
-// POJO MOVIE
+// POJO MOVIE (Film)
 public class Movie {
 
     private String idMovie;
