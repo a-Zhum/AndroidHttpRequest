@@ -36,7 +36,7 @@
 
         <fragment
             android:id="@+id/fragment"
-            android:name="fr.zhum.lp3tp23.MovieFragment"
+            android:name="fr.zhum.lp3tp23.View.MovieFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

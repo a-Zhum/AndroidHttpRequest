@@ -1,10 +1,8 @@
-package fr.zhum.lp3tp23;
+package fr.zhum.lp3tp23.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.service.voice.VoiceInteractionSession;
-import android.service.voice.VoiceInteractionSession.Request;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +18,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.service.voice.VoiceInteractionSession.Request.*;
+import fr.zhum.lp3tp23.Model.Movie;
+import fr.zhum.lp3tp23.R;
+
 // Activité Principale
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package fr.zhum.lp3tp23;
+package fr.zhum.lp3tp23.Controler;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import java.util.ArrayList;
-import java.util.List;
+
+import fr.zhum.lp3tp23.Model.Movie;
+import fr.zhum.lp3tp23.R;
 
 // Adpateur de Film (Movie)
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {

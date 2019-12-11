@@ -1,4 +1,4 @@
-package fr.zhum.lp3tp23;
+package fr.zhum.lp3tp23.Model;
 
 // POJO MOVIE (Film)
 public class Movie {

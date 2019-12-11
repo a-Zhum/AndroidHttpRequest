@@ -1,4 +1,4 @@
-package fr.zhum.lp3tp23;
+package fr.zhum.lp3tp23.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import fr.zhum.lp3tp23.Controler.MovieAdapter;
+import fr.zhum.lp3tp23.Controler.RecyclerItemClickListener;
+import fr.zhum.lp3tp23.Model.Movie;
+import fr.zhum.lp3tp23.R;
+import fr.zhum.lp3tp23.View.DetailsActivity;
 
 // Fragment Comportant la RecyclerView
 public class MovieFragment extends Fragment {

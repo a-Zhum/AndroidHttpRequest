@@ -1,4 +1,4 @@
-package fr.zhum.lp3tp23;
+package fr.zhum.lp3tp23.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,9 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import fr.zhum.lp3tp23.R;
+
 // Activité Secondaire qui contient notre recyclerView de film
 public class DetailsActivity extends AppCompatActivity {
 
