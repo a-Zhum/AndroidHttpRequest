@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,7 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtBoxSearch;
     private Button btnSearch;
     private RequestQueue myRequestQueue;
-    private String urlApi = "http://www.omdbapi.com/?apikey=2375f757&s=";
+    // Clé API
+    private String apiKey = "2375f757";
+    // type = movie (on veut uniquement des films)
+    private String urlApi = "http://www.omdbapi.com/?apikey="+apiKey+"&type=movie";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,24 +51,27 @@ public class MainActivity extends AppCompatActivity {
                     txtBoxSearch.setError(getString(R.string.emptyTxtBox));
                 }else {
                     txtBoxSearch.setText("");
-                    searchMovie(MovieSearch);
+                    MovieFragment.resetM();
+                    searchMovie(MovieSearch, 1);
                 }
+
+                InputMethodManager clv = (InputMethodManager)getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
+                clv.hideSoftInputFromWindow(v.getWindowToken(), 0);
             }
         });
     }
 
 
     // Fonction de recherche de Film
-    protected void searchMovie(String movie) {
+    protected void searchMovie(final String movie, final int page) {
         myRequestQueue = Volley.newRequestQueue(this);
 
             JsonObjectRequest getMovies;
-            getMovies = new JsonObjectRequest(com.android.volley.Request.Method.GET, urlApi + movie, null, new Response.Listener<JSONObject>() {
+            getMovies = new JsonObjectRequest(com.android.volley.Request.Method.GET, urlApi +"&s="+movie+"&page="+page, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray movies = (JSONArray) response.get("Search");
-                    MovieFragment.resetM();
 
                     // Ajout des éléments de l'Objet JSON 1 à 1
                     for (int i = 0; i < movies.length(); i++) {
@@ -72,8 +79,14 @@ public class MainActivity extends AppCompatActivity {
                         String idMovie = m.getString("imdbID");
                         String title = m.getString("Title");
                         String year = m.getString("Year");
-                        Movie movie = new Movie(idMovie, title, year);
-                        MovieFragment.addM(movie);
+                        Movie newMovie = new Movie(idMovie, title, year);
+                        MovieFragment.addM(newMovie);
+                    }
+
+                    // on reprend l'objet JSON response et non le movie ou le m
+                    int totalResults = response.getInt("totalResults");
+                    if (totalResults > (page * 10) ){
+                        searchMovie(movie,page+1);
                     }
                 } catch (JSONException error) {
                     Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();

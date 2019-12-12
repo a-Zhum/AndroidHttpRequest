@@ -11,4 +11,6 @@
     <string name="gender">Genre(s) :</string>
     <string name="emptyTxtBox">Ce champ ne peut pas être vide !</string>
     <string name="directorName">Producteur :</string>
+    <string name="consult">Cliquer ici pour consulter la fiche du film sur le site imdb</string>
+    <string name="btnConsult">Consulter sur internet</string>
 </resources>

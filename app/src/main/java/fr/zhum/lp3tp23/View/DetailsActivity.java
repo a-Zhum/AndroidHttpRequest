@@ -1,7 +1,10 @@
 package fr.zhum.lp3tp23.View;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,8 +29,12 @@ public class DetailsActivity extends AppCompatActivity {
 
     private ImageView imgMovie;
     private TextView lblTitleDetails, lblYearDetails, lblRuntimeDetails, lblGenderDetails, lblDirectorDetails;
+    private Button btnLienDetails;
     private RequestQueue myRequestQueue;
-    private String urlApi = "http://www.omdbapi.com/?apikey=2375f757&i=";
+    //clé API
+    private String apiKey = "2375f757";
+    //lien pré configuré
+    private String urlApi = "http://www.omdbapi.com/?apikey="+apiKey+"&i=";
 
 
     @Override
@@ -41,6 +48,7 @@ public class DetailsActivity extends AppCompatActivity {
         lblDirectorDetails = findViewById(R.id.lblDirectorDetails);
         lblGenderDetails = findViewById(R.id.lblGenderDetails);
         lblRuntimeDetails = findViewById(R.id.lblRuntimeDetails);
+        btnLienDetails = findViewById(R.id.btnLienDetails);
 
         // On renvoit le détail d'un film à l'aide de son ID transmit à l'Intente
         Intent intent = getIntent();
@@ -48,7 +56,7 @@ public class DetailsActivity extends AppCompatActivity {
         getMovieById(idMovie);
     }
 
-    protected void getMovieById(String idMovie) {
+    protected void getMovieById(final String idMovie) {
         myRequestQueue = Volley.newRequestQueue(this);
 
         JsonObjectRequest getMovieById = new JsonObjectRequest(Request.Method.GET, urlApi + idMovie, null, new Response.Listener<JSONObject>() {
@@ -62,6 +70,7 @@ public class DetailsActivity extends AppCompatActivity {
                     lblDirectorDetails.setText(response.getString("Director"));
                     lblGenderDetails.setText(response.getString("Genre"));
                     lblRuntimeDetails.setText(response.getString("Runtime"));
+
                 }
                 catch (JSONException error) {
                     Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
@@ -75,5 +84,16 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
         myRequestQueue.add(getMovieById);
+
+        // Lors du clique sur bouton Search
+        btnLienDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.imdb.com/title/" + idMovie;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
     }
 }

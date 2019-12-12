@@ -4,20 +4,42 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="4sp"
+            android:layout_marginLeft="15px"
+            android:layout_marginTop="5sp"
+            android:layout_marginRight="15px"
+            android:layout_marginBottom="5sp"
+            android:background="#E91E63" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/titleFragmentCell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="24sp"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/yearFragmentCell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"
         android:textAlignment="textEnd"
-        android:textSize="17dp"
+        android:textColor="#E91E63"
+        android:textSize="14sp"
         android:textStyle="italic"
         android:visibility="visible" />
 </LinearLayout>

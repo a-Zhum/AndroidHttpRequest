@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">LP3TP23</string>
     <string name="hintExample">Example : Les dents de la mer</string>
-    <string name="lblSearchMainActivity">" Please enter the name of a movie:"</string>
-    <string name="search">Rechercher</string>
+    <string name="lblSearchMainActivity">Please enter name of a movie:</string>
+    <string name="search">Search</string>
     <string name="year">Year :</string>
     <string name="title">Title :</string>
     <string name="searchError">Cannot find the movie</string>
@@ -10,7 +10,8 @@
     <string name="gender">Gender(s) :</string>
     <string name="directorName">Director name :</string>
     <string name="emptyTxtBox">This field cannot be empty !</string>
+    <string name="consult">Click here to consult at imdb site</string>
+    <string name="btnConsult">Consult on website</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

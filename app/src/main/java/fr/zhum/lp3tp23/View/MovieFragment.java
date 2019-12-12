@@ -65,7 +65,7 @@ public class MovieFragment extends Fragment {
         RecyclerItemClickListener.addTo(myMovieRecyclerView, R.layout.fragment_movie)
                 .setOnItemClickListener(new RecyclerItemClickListener.OnItemClickListener() {
 
-                    // Méthone appelé lors du clique sur un élément du RecyclerView
+                    // Appelé lors du clique sur un élément du recyclerView
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                         Intent intent = new Intent(getContext(), DetailsActivity.class);
