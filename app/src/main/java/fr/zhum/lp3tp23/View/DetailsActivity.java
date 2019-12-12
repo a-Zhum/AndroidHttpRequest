@@ -85,7 +85,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         myRequestQueue.add(getMovieById);
 
-        // Lors du clique sur bouton Search
+        // Lors du clique sur le bouton détails
         btnLienDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

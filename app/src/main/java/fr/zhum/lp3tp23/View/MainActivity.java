@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     searchMovie(MovieSearch, 1);
                 }
 
+                // On masque le clavier (on en a plus besoin après le click sur le boutton
                 InputMethodManager clv = (InputMethodManager)getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
                 clv.hideSoftInputFromWindow(v.getWindowToken(), 0);
             }
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     // on reprend l'objet JSON response et non le movie ou le m
                     int totalResults = response.getInt("totalResults");
                     if (totalResults > (page * 10) ){
+                        // on appelle rappelle la même méthode (récursivité)
                         searchMovie(movie,page+1);
                     }
                 } catch (JSONException error) {

@@ -65,7 +65,7 @@ public class MovieFragment extends Fragment {
         RecyclerItemClickListener.addTo(myMovieRecyclerView, R.layout.fragment_movie)
                 .setOnItemClickListener(new RecyclerItemClickListener.OnItemClickListener() {
 
-                    // Appelé lors du clique sur un élément du recyclerView
+                    // Appelé lors du clique sur un élément du recyclerView permet de situé l'élément en récupérent son 'id'
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                         Intent intent = new Intent(getContext(), DetailsActivity.class);
