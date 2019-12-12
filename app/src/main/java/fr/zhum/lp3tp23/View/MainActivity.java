@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                         searchMovie(movie,page+1);
                     }
                 } catch (JSONException error) {
-                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.searchError, Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
